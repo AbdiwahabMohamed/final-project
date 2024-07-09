@@ -1,0 +1,65 @@
+@model List<Customer>
+<partial name="_Notification" />
+<div class="container pt-4 pb-4">
+    <div class="row">
+        <div class="col-6 ">
+            <h1 class="text-primary">Customer List</h1>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Customer" asp-action="Create" class="btn btn-primary">
+                <i class="bi bi-plus-lg"></i> Create New Customer
+            </a>
+        </div>
+    </div>
+
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>
+                    Fuul Name
+                </th>
+                <th>
+                    Phone Number
+                </th>
+                <th>
+                    Address
+                </th>
+                <th>
+                    Home Number
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var customer in Model)
+            {
+                <tr>
+                    <td>
+                        @customer.FullName
+                    </td>
+                    <td>
+                        @customer.Address
+                    </td>
+                    <td>
+                        @customer.Phone
+                    </td>
+                    <td>
+                        @customer.HomeNumber
+                    </td>
+                    <td>
+                        <div class="btn btn-group w-75" role="group">
+                            <a asp-controller="Customer" asp-action="Edit" asp-route-id="@customer.Id"
+                                class="btn btn-primary mx-2">
+                                <i class="bi bi-pencil-square"></i> Edit
+                            </a>
+                            <a asp-controller="Customer" asp-action="Delete" asp-route-id="@customer.Id" class=" btn btn-danger
+                                mx-2">
+                                <i class="bi bi-trash-fill"></i>Delete
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
