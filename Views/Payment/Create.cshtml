@@ -1,0 +1,68 @@
+@model Payment
+
+<form method="post">
+    <div class="border p-3">
+        <div class="row pb-3">
+            <h1 class="text-primary">Create Payment</h1>
+            <hr />
+        </div>
+        <div class="mb-3 row">
+            <label asp-for="PaymentDate"></label>
+            <input type="text" asp-for="PaymentDate" class="form-control" />
+            <span asp-validation-for="PaymentDate" class="text-danger"></span>
+        </div>
+        <div class="mb-3 row">
+            <label asp-for="DouDate"></label>
+            <input type="text" asp-for="DouDate" class="form-control" />
+            <span asp-validation-for="DouDate" class="text-danger"></span>
+        </div>
+        <div class="mb-3 row">
+            <label asp-for="UnitPrice"></label>
+            <input type="text" asp-for="UnitPrice" class="form-control" />
+            <span asp-validation-for="UnitPrice" class="text-danger"></span>
+        </div>
+        <div class="mb-3 row">
+            <label asp-for="MeterReadingStart"></label>
+            <input type="text" asp-for="MeterReadingStart" class="form-control" />
+            <span asp-validation-for="MeterReadingStart" class="text-danger"></span>
+        </div>
+        <div class="mb-3 row">
+            <label asp-for="MeterReadingEnd"></label>
+            <input type="text" asp-for="MeterReadingEnd" class="form-control" />
+            <span asp-validation-for="MeterReadingEnd" class="text-danger"></span>
+        </div>
+        <div class="mb-3 row">
+            <label asp-for="Total"></label>
+            <input type="text" asp-for="Total" class="form-control" />
+            <span asp-validation-for="Total" class="text-danger"></span>
+        </div>
+        <div class="mb-3 row">
+            <label asp-for="Status"></label>
+            <input type="text" asp-for="Status" class="form-control" />
+            <span asp-validation-for="Status" class="text-danger"></span>
+        </div>
+        <div class="mb-3 row">
+            <label asp-for="Description"></label>
+            <input type="text" asp-for="Description" class="form-control" />
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6 ">
+            <button type="submit" class="btn btn-primary form-control">Create</button>
+        </div>
+        <div class="col-6">
+            <a asp-controller="Payment" asp-action="Index" class="btn btn-outline-secondary form-control">
+                Back To List
+            </a>
+        </div>
+    </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

@@ -1,0 +1,96 @@
+@model List<Payment>
+
+<partial name="_Notification" />
+<div class="container pt-4 pb-4">
+    <div class="row">
+        <div class="col-6 ">
+            <h1 class="text-primary">Payment List</h1>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Payment" asp-action="Create" class="btn btn-primary">
+                <i class="bi bi-plus-lg"></i> Create New Payment
+            </a>
+        </div>
+    </div>
+
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>
+                    PaymentDate
+                </th>
+                <th>
+                    DouDate
+                </th>
+                <th>
+                    UnitPrice
+                </th>
+                <th>
+                    MeterReadingStart
+                </th>
+                <th>
+                    MeterReadingEnd
+                </th>
+                <th>
+                    Total
+                </th>
+                <th>
+                    PaymentMethod
+                </th>
+                <th>
+                    Status
+                </th>
+                <th>
+                    Description
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var payment in Model)
+            {
+                <tr>
+                    <td>
+                        @payment.PaymentDate
+                    </td>
+                    <td>
+                        @payment.DouDate
+                    </td>
+                    <td>
+                        @payment.UnitPrice
+                    </td>
+                    <td>
+                        @payment.MeterReadingStart
+                    </td>
+                    <td>
+                        @payment.MeterReadingEnd
+                    </td>
+                    <td>
+                        @payment.PaymentMethod
+                    </td>
+                    <td>
+                        @payment.Total
+                    </td>
+                    <td>
+                        @payment.Status
+                    </td>
+                    <td>
+                        @payment.Description
+                    </td>
+                    <td>
+                        <div class="btn btn-group w-75" role="group">
+                            <a asp-controller="Payment" asp-action="Edit" asp-route-id="@payment.Id"
+                                class="btn btn-primary mx-2">
+                                <i class="bi bi-pencil-square"></i> Edit
+                            </a>
+                            <a asp-controller="Payment" asp-action="Delete" asp-route-id="@payment.Id" class=" btn btn-danger
+                                mx-2">
+                                <i class="bi bi-trash-fill"></i>Delete
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,6 +1,6 @@
 using System.Reflection.Metadata.Ecma335;
 using Microsoft.AspNetCore.Mvc;
-using projectuniversity;
+using Project_University;
 
 namespace Project_University.Controllers
 {
@@ -14,8 +14,8 @@ namespace Project_University.Controllers
         }
         public IActionResult Index()
         {
-            List<Payment> userList = _context.Payments.ToList();
-            return View(userList);
+            List<Payment> paymentList = _context.Payments.ToList();
+            return View(paymentList);
         }
         public IActionResult Create()
         {
@@ -33,7 +33,7 @@ namespace Project_University.Controllers
                 TempData["success"] = "Payment Created successfully";
                 return RedirectToAction("Index");
             }
-            return View();
+            return View(obj);
 
         }
 

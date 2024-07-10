@@ -1,6 +1,6 @@
 using System.Reflection.Metadata.Ecma335;
 using Microsoft.AspNetCore.Mvc;
-using projectuniversity;
+
 
 namespace Project_University.Controllers
 {
@@ -73,25 +73,25 @@ namespace Project_University.Controllers
                 return NotFound();
             }
             //_context.categories.Find(id);
-            Customer? customer = _context.Customers.Find(id);
-            if (customer != null)
+            User? user = _context.Users.Find(id);
+            if (user == null)
             {
                 return NotFound();
             }
-            return View(customer);
+            return View(user);
         }
         [HttpPost, ActionName("Delete")]
         public IActionResult DeletePost(int? id)
         {
-            Customer? customer = _context.Customers.Find(id);
-            if (customer == null)
+            User? user = _context.Users.Find(id);
+            if (user == null)
             {
                 return NotFound();
             }
 
-            _context.Customers.Remove(customer);
+            _context.Users.Remove(user);
             _context.SaveChanges();
-            TempData["success"] = "Category Deleted successfully";
+            TempData["success"] = "User Deleted successfully";
             return RedirectToAction("Index");
 
         }
